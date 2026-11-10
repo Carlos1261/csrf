@@ -3,42 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Browser Timing Test</title>
+    <title>Navigation Test</title>
 </head>
 <body>
-    <h1>Browser timing diagnostic</h1>
-
     <script>
         const receiver =
-            "https://tpas-csrf-carlos1261.requestcatcher.com";
+          "https://tpas-csrf-carlos1261.requestcatcher.com";
 
-        function signal(stage) {
-            const img = new Image();
-            img.src = receiver + "/?stage=" + stage;
-        }
+        // Confirma que JavaScript empezó.
+        const img = new Image();
+        img.src = receiver + "/?stage=before-navigation";
 
-        // Se ejecuta inmediatamente.
-        signal("start");
-
-        // Comprueba el event loop.
+        // Navegación principal, no subrecurso.
         setTimeout(() => {
-            signal("timer0");
-        }, 0);
-
-        // Comprueba si llega a 500 ms.
-        setTimeout(() => {
-            signal("timer500");
+            window.location.assign(
+                receiver + "/navigation-test?type=top-level"
+            );
         }, 500);
-
-        // Comprueba si llega a 1500 ms.
-        setTimeout(() => {
-            signal("timer1500");
-        }, 1500);
-
-        // Comprueba si llega a 3000 ms.
-        setTimeout(() => {
-            signal("timer3000");
-        }, 3000);
     </script>
 </body>
 </html>
